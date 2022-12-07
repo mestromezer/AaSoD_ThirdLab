@@ -29,7 +29,7 @@ char getch(void)
 
 template <typename T>
 ostream& operator<<(ostream& os, const Polynominal<T>& Obj)
-{
+{   
     for(auto i = Obj.cbegin(); i != Obj.cend(); i++)
     {
         auto check = i;
@@ -39,6 +39,21 @@ ostream& operator<<(ostream& os, const Polynominal<T>& Obj)
             os << " + ";
     }
     return os;
+}
+
+template<class T>
+T check()
+{
+	T number = 0;
+	
+    while (!(cin >> number) || (cin.peek() != '\n'))
+    {
+        cin.clear();
+        while (cin.get() != '\n');
+        cout << "Incorrect value\n";
+    }
+
+    return number;
 }
 
 /*template<typename T>
@@ -112,8 +127,7 @@ void Menu1()
          << endl;
 
     cout << "Order of Polynominal: " << endl;
-    long long OrderOfPolynominal = 0;
-    cin >> OrderOfPolynominal;
+    long long OrderOfPolynominal = check<long long>();
 
     Polynominal<T> *Newbie = NULL;
     try
@@ -128,8 +142,7 @@ void Menu1()
     for (int i = OrderOfPolynominal; i >= 0; i--)
     {
         cout << "Coef by " << i << ":\n";
-        T Coefficient;
-        cin >> Coefficient;
+        T Coefficient = check<T>();
         Newbie->Set(i, Coefficient);
     }
 
@@ -147,8 +160,7 @@ Polynominal<T> * MenuInputArg()
          << endl;
 
     cout << "Order of Polynominal: " << endl;
-    long long OrderOfPolynominal = 0;
-    cin >> OrderOfPolynominal;
+    long long OrderOfPolynominal = check<long long>();
 
     Polynominal<T> *Newbie = NULL;
     try
@@ -163,8 +175,7 @@ Polynominal<T> * MenuInputArg()
     for (int i = OrderOfPolynominal; i >= 0; i--)
     {
         cout << "Coef by " << i << ":\n";
-        T Coefficient;
-        cin >> Coefficient;
+        T Coefficient = check<T>();
         Newbie->Set(i, Coefficient);
     }
 
@@ -197,8 +208,7 @@ template<typename T>
 T InputValue()
 {
     cout << "Give a value: " << endl;;
-    double X = 0;
-    cin >> X;
+    T X = check<T>();
     return X;
 }
 
@@ -292,8 +302,7 @@ void GetCoefByIndex(const Polynominal<T> *Object)
          << endl;
     cout << (*Object) << endl;
     cout << "Input index: ";
-    int Index = 0;
-    cin >> Index;
+    long long Index = check<long long>();
     cout << "Value: " << (*Object)[Index] << endl;
 }
 

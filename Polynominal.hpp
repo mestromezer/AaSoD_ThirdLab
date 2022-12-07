@@ -29,9 +29,13 @@ public:
 
     long long GetOrderOfPolynominal() const;
 
+    Polynominal();
+
     Polynominal(long long Order); // https://www.bestprog.net/ru/2019/08/04/keywords-default-delete-examples-of-using-ru/
 
     ~Polynominal();
+
+    Polynominal(const Polynominal& Other);
 
     auto cbegin() const { return Data.cbegin(); }
 

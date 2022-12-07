@@ -6,6 +6,12 @@ long long Polynominal<T>::GetOrderOfPolynominal() const
     return OrderOfPolynominal;
 }
 
+/*template<typename T>
+Polynominal<T>::Polynominal()
+{
+    this->OrderOfPolynominal = -1;
+}*/
+
 template<typename T>
 Polynominal<T>::Polynominal(long long Order)
 {
@@ -25,6 +31,17 @@ Polynominal<T>::~Polynominal()
 {
     Data.clear();
 }
+
+template<typename T>
+Polynominal<T>::Polynominal(const Polynominal& Other)
+    {
+        this->OrderOfPolynominal = Other.GetOrderOfPolynominal();
+        auto it = Other.cbegin();
+        for(it; it!=Other.cend();it++)
+        {
+            this->Data.push_back((*it));
+        }
+    }
 
 template<typename T>
 void Polynominal<T>::Set(long long Order, T Value)
