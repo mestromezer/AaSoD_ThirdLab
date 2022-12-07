@@ -31,6 +31,8 @@ public:
 
     Polynominal(long long Order); // https://www.bestprog.net/ru/2019/08/04/keywords-default-delete-examples-of-using-ru/
 
+    Polynominal(const Polynominal& Other);
+
     ~Polynominal();
 
     auto cbegin() const { return Data.cbegin(); }
